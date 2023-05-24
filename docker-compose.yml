@@ -1,4 +1,8 @@
 version: '3'
+labels:
+  com.docker.compose.project: "Cassandra_3x_cluster"
+  com.docker.compose.network: "netring"
+  com.cass.label-with-empty-value: ""
 services:
 # The first node and config in the first datacenter.
     node1:
@@ -109,7 +113,3 @@ networks:
       ipam:
           config:
               - subnet: 172.16.0.0/16
-      labels:
-        com.cass.description: "Cassandra transactions network"
-        com.cass.department: "Cassandra_DB"
-        com.cass.label-with-empty-value: ""
