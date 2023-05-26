@@ -20,8 +20,8 @@ services:
             - NUM_TOKENS=3
             - DC=DC1
             - RACK=RAC1
-            - HEAP_NEWSIZE=100000000
-            - MAX_HEAP_SIZE=1000000000
+            - HEAP_NEWSIZE=100M
+            - MAX_HEAP_SIZE=1G
         # Exposing ports for inter cluster communication
         expose:
             # Intra-node communication
@@ -55,8 +55,8 @@ services:
             - NUM_TOKENS=3
             - DC=DC2
             - RACK=RAC1
-            - HEAP_NEWSIZE=100000000
-            - MAX_HEAP_SIZE=1000000000
+            - HEAP_NEWSIZE=100M
+            - MAX_HEAP_SIZE=1G
         expose:
             - 7000
             - 7001
@@ -86,8 +86,8 @@ services:
             - NUM_TOKENS=3
             - DC=DC1
             - RACK=RAC1
-            - HEAP_NEWSIZE=100000000
-            - MAX_HEAP_SIZE=1000000000
+            - HEAP_NEWSIZE=100M
+            - MAX_HEAP_SIZE=1G
         expose:
             - 7000
             - 7001
