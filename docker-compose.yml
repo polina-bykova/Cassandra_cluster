@@ -1,8 +1,4 @@
 version: '3'
-labels:
-  com.docker.compose.project: "Cassandra_3x_cluster"
-  com.docker.compose.network: "netring"
-  com.cass.label-with-empty-value: ""
 services:
 # The first node and config in the first datacenter.
     node1:
@@ -11,9 +7,8 @@ services:
         hostname: node1
         # use static ip address
         networks:
-            - netring:
-                ipv4_address: 172.16.0.2
-            - localnet:
+            netring:
+              ipv4_address: 172.16.0.2
         # Docker container environment variable. We are using the
         # CASSANDRA_CLUSTER_NAME to name the cluster. This needs to be the same
         # across clusters. We are also declaring that node1 is a seed node etc.
@@ -50,9 +45,8 @@ services:
         container_name: Cass_node2
         hostname: node2
         networks:
-            - netring:
-                ipv4_address: 172.16.0.3
-            - localnet:
+            netring:
+              ipv4_address: 172.16.0.3
         environment:
             - DS_LICENSE=accept
             - SEEDS=node1
@@ -82,9 +76,8 @@ services:
         container_name: Cass_node3
         hostname: node3
         networks:
-          - netring:
-                ipv4_address: 172.16.0.4
-          - localnet:
+          netring:
+              ipv4_address: 172.16.0.4
         environment:
             - DS_LICENSE=accept
             - SEEDS=node1
@@ -110,11 +103,9 @@ services:
         depends_on:
             - node1
 networks:
-    - netring:
-        driver: overlay
-        attachable: true
-        ipam:
-            config:
-                - subnet: 172.16.0.0/16
-    - localnet:
-        driver: bridge
+    netring:
+      driver: bridge
+      attachable: true
+      ipam:
+          config:
+              - subnet: 172.16.0.0/16
