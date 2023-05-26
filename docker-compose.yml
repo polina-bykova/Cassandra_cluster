@@ -34,7 +34,6 @@ services:
             # CQL SSL
             - 9142
         ports:
-            - 7000:7000
             - 9042:9042
         ulimits:
             memlock: -1
@@ -63,7 +62,6 @@ services:
             - 9042
             - 9142
         ports:
-            - 7000:7000
             - 9043:9042
         ulimits:
             memlock: -1
@@ -94,7 +92,6 @@ services:
             - 9042
             - 9142
         ports:
-            - 7000:7000
             - 9044:9042
         ulimits:
             memlock: -1
