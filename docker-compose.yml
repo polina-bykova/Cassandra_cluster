@@ -80,7 +80,7 @@ services:
               ipv4_address: 172.16.0.4
         environment:
             - DS_LICENSE=accept
-            - SEEDS=node1
+            - SEEDS=node1, node2
             - START_RPC=false
             - CLUSTER_NAME=Cass_cluster
             - NUM_TOKENS=3
@@ -102,10 +102,10 @@ services:
             nofile: 100000
         depends_on:
             - node1
+            - node2
 networks:
     netring:
       driver: bridge
-      attachable: true
       ipam:
           config:
               - subnet: 172.16.0.0/16
