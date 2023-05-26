@@ -40,6 +40,10 @@ services:
             memlock: -1
             nproc: 32768
             nofile: 100000
+        deploy:
+            resources:
+              limits:
+                memory: 4G
     node2:
         image: cassandra:4.1.1
         container_name: Cass_node2
@@ -71,6 +75,10 @@ services:
             nofile: 100000
         depends_on:
             - node1
+        deploy:
+            resources:
+              limits:
+                memory: 4G
     node3:
         image: cassandra:4.1.1
         container_name: Cass_node3
@@ -103,6 +111,10 @@ services:
         depends_on:
             - node1
             - node2
+         deploy:
+            resources:
+              limits:
+                memory: 4G
 networks:
     netring:
       driver: bridge
